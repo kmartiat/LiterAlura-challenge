@@ -9,6 +9,9 @@
 *.nar
 hs_err_pid*
 
+## Ignored Files
+/src/main/resources/env.properties
+
 ##############################
 ## Maven
 ##############################
