@@ -1,10 +1,6 @@
 package com.one.challenge.literalura.service;
 
-import com.one.challenge.literalura.domain.Book;
-import com.one.challenge.literalura.domain.BookData;
-import com.one.challenge.literalura.domain.ResultData;
-
-import java.util.List;
+import com.one.challenge.literalura.domain.*;
 
 public class MainService {
     private String BASE_URL = "https://gutendex.com/books/?search=pride";
@@ -16,5 +12,10 @@ public class MainService {
 
         ResultData resultData = convertService.convert(jsonSource, ResultData.class);
         BookData data = resultData.results().get(0);
+        AuthorData authorData = resultData.results().get(0).authors().get(0);
+        Author author = new Author(authorData);
+        System.out.println(author);
+        Book book = new Book(data, author);
+        System.out.println(book);
     }
 }
