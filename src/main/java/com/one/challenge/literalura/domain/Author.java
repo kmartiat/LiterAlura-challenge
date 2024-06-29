@@ -2,6 +2,8 @@ package com.one.challenge.literalura.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Table(name = "authors")
 @Entity
 public class Author {
@@ -17,6 +19,9 @@ public class Author {
 
     @Column(name = "death_year")
     private Integer deathYear;
+
+    @OneToMany(mappedBy = "author")
+    private List<Book> books;
 
     public Author(AuthorData authorData) {
         this.name = authorData.name();

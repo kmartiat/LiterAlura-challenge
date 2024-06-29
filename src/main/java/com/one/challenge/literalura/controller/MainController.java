@@ -1,12 +1,21 @@
 package com.one.challenge.literalura.controller;
 
+import com.one.challenge.literalura.repository.IAuthorRepository;
+import com.one.challenge.literalura.repository.IBookRepository;
 import com.one.challenge.literalura.service.MainService;
 
 import java.util.Scanner;
 
 public class MainController {
     private Scanner scanner = new Scanner(System.in);
+    private IBookRepository bookRepository;
+    private IAuthorRepository authorRepository;
     private MainService mainService = new MainService();
+
+    public MainController(IBookRepository bookRepository, IAuthorRepository authorRepository) {
+        this.bookRepository = bookRepository;
+        this.authorRepository = authorRepository;
+    }
 
     public void showMenu() {
         Integer option = -1;
@@ -26,7 +35,7 @@ public class MainController {
 
             switch (option) {
                 case 1:
-                    mainService.searchBooksByTitle();
+                    mainService.searchBooksByTitle(this.bookRepository, this.authorRepository);
                     break;
                 case 0:
                     System.out.println("Exit from app...");

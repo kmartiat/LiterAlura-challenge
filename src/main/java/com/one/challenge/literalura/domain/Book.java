@@ -11,6 +11,9 @@ public class Book {
 
     @Column(unique = true)
     private String title;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
     private Author author;
     private String language;
 
