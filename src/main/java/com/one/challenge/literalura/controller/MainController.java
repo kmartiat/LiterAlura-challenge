@@ -6,11 +6,12 @@ import com.one.challenge.literalura.service.MainService;
 
 import java.util.Scanner;
 
+import static com.one.challenge.literalura.utils.Literals.*;
+
 public class MainController {
     private Scanner scanner = new Scanner(System.in);
     private IBookRepository bookRepository;
     private IAuthorRepository authorRepository;
-    private MainService mainService = new MainService();
 
     public MainController(IBookRepository bookRepository, IAuthorRepository authorRepository) {
         this.bookRepository = bookRepository;
@@ -18,30 +19,24 @@ public class MainController {
     }
 
     public void showMenu() {
+        MainService mainService = new MainService(this.bookRepository, this.authorRepository);
         Integer option = -1;
+        System.out.println(WELCOME);
+
         while (option != 0) {
-            String menu = """
-                    1 - Search book by title
-                    2 - List of registered books
-                    3 - List of registered authors
-                    4 - List of books by language
-                    5 - List of books by language
-                                        
-                    0 - Exit
-                    """;
-            System.out.println(menu);
+            System.out.println(MENU);
             option = scanner.nextInt();
             scanner.nextLine();
 
             switch (option) {
                 case 1:
-                    mainService.searchBooksByTitle(this.bookRepository, this.authorRepository);
+                    mainService.searchBooksByTitle();
                     break;
                 case 0:
-                    System.out.println("Exit from app...");
+                    System.out.println(FINAL_MESSAGE);
                     break;
                 default:
-                    System.out.println("Invalid option");
+                    System.out.println(INVALID_MESSAGE);
             }
         }
     }
