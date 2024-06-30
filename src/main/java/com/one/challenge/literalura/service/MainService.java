@@ -8,9 +8,10 @@ import com.one.challenge.literalura.repository.IBookRepository;
 import java.util.Optional;
 import java.util.Scanner;
 
+import static com.one.challenge.literalura.utils.Literals.*;
+
 public class MainService {
     private Scanner scanner = new Scanner(System.in);
-    private String BASE_URL = "https://gutendex.com/books/?search=";
     private ConvertService convertService = new ConvertService();
     private IBookRepository bookRepository;
     private IAuthorRepository authorRepository;
@@ -35,12 +36,20 @@ public class MainService {
             ResultData resultData = convertService.convert(jsonSource, ResultData.class);
             BookData data = resultData.results().get(0);
             AuthorData authorData = resultData.results().get(0).authors().get(0);
-            Author author = new Author(authorData);
+            Author author;
+
+            Optional<Author> authorOptional = authorRepository.findByName(authorData.name());
+            if (authorOptional.isEmpty()) {
+                author = new Author(authorData);
+                authorRepository.save(author);
+            } else {
+                author = authorOptional.get();
+            }
+
             Book book = new Book(data, author);
-            authorRepository.save(author);
             bookRepository.save(book);
 
-            System.out.println(new BookDTO(book).toString());
+            System.out.println(new BookDTO(book));
             System.out.println("successfully registered book");
         }
     }
