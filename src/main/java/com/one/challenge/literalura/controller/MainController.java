@@ -32,6 +32,9 @@ public class MainController {
                 case 1:
                     mainService.searchBooksByTitle();
                     break;
+                case 2:
+                    mainService.listRegisteredBooks();
+                    break;
                 case 0:
                     System.out.println(FINAL_MESSAGE);
                     break;

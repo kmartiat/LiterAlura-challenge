@@ -5,6 +5,7 @@ import com.one.challenge.literalura.dto.BookDTO;
 import com.one.challenge.literalura.repository.IAuthorRepository;
 import com.one.challenge.literalura.repository.IBookRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -53,4 +54,14 @@ public class MainService {
             System.out.println("successfully registered book");
         }
     }
+
+    public void listRegisteredBooks() {
+        List<Book> books = bookRepository.findAll();
+        if (books.isEmpty()) {
+            System.out.println(EMPTY_LIST_BOOKS);
+        } else {
+            books.stream().forEach(b -> System.out.println(new BookDTO(b)));
+        }
+    }
 }
+

@@ -26,4 +26,6 @@ public class Literals {
     public static final String FINAL_MESSAGE = "Thank you for visiting LiterAlura.";
 
     public static final String BASE_URL = "https://gutendex.com/books/?search=";
+
+    public static final String EMPTY_LIST_BOOKS = "There are no books registered in the database.";
 }
