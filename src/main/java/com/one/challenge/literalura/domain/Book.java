@@ -20,6 +20,9 @@ public class Book {
     @Column(name = "download_count")
     private Integer downloadCount;
 
+    public Book() {
+    }
+
     public Book(BookData data, Author author) {
         this.title = data.title();
         this.author = author;
@@ -27,14 +30,23 @@ public class Book {
         this.downloadCount = data.downloadCount();
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author=" + author +
-                ", language='" + language + '\'' +
-                ", downloadCount=" + downloadCount +
-                '}';
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public Integer getDownloadCount() {
+        return downloadCount;
     }
 }

@@ -23,10 +23,33 @@ public class Author {
     @OneToMany(mappedBy = "author")
     private List<Book> books;
 
+    public Author() {
+    }
+
     public Author(AuthorData authorData) {
         this.name = authorData.name();
         this.birthYear = authorData.birthYear();
         this.deathYear = authorData.deathYear();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getBirthYear() {
+        return birthYear;
+    }
+
+    public Integer getDeathYear() {
+        return deathYear;
+    }
+
+    public List<Book> getBooks() {
+        return books;
     }
 
     @Override
