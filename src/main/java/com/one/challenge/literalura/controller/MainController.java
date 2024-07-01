@@ -38,6 +38,9 @@ public class MainController {
                 case 3:
                     mainService.listRegisteredAuthors();
                     break;
+                case 4:
+                    mainService.listAuthorsAliveInAGivenYear();
+                    break;
                 case 0:
                     System.out.println(FINAL_MESSAGE);
                     break;

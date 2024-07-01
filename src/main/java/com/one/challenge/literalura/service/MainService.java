@@ -73,5 +73,18 @@ public class MainService {
             authors.stream().forEach(a -> System.out.println(new AuthorDTO(a)));
         }
     }
+
+    public void listAuthorsAliveInAGivenYear() {
+        System.out.println("Enter the limit year: ");
+        Integer year = scanner.nextInt();
+        scanner.nextLine();
+
+        List<Author> authors = authorRepository.findByYear(year);
+        if (authors.isEmpty()) {
+            System.out.println(EMPTY_LIST_AUTHORS);
+        } else {
+            authors.stream().forEach(a -> System.out.println(new AuthorDTO(a)));
+        }
+    }
 }
 

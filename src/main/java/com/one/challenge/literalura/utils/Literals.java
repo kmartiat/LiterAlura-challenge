@@ -11,7 +11,7 @@ public class Literals {
             1 - Search book by title
             2 - List of registered books
             3 - List of registered authors
-            4 - List of books by language
+            4 - List Authors Alive In A Given Year
             5 - List of books by language
                                 
             0 - Exit
