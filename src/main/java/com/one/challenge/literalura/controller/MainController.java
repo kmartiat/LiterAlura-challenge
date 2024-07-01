@@ -35,6 +35,9 @@ public class MainController {
                 case 2:
                     mainService.listRegisteredBooks();
                     break;
+                case 3:
+                    mainService.listRegisteredAuthors();
+                    break;
                 case 0:
                     System.out.println(FINAL_MESSAGE);
                     break;

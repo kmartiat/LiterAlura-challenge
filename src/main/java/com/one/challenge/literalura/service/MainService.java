@@ -1,6 +1,7 @@
 package com.one.challenge.literalura.service;
 
 import com.one.challenge.literalura.domain.*;
+import com.one.challenge.literalura.dto.AuthorDTO;
 import com.one.challenge.literalura.dto.BookDTO;
 import com.one.challenge.literalura.repository.IAuthorRepository;
 import com.one.challenge.literalura.repository.IBookRepository;
@@ -61,6 +62,15 @@ public class MainService {
             System.out.println(EMPTY_LIST_BOOKS);
         } else {
             books.stream().forEach(b -> System.out.println(new BookDTO(b)));
+        }
+    }
+
+    public void listRegisteredAuthors() {
+        List<Author> authors = authorRepository.findAll();
+        if (authors.isEmpty()) {
+            System.out.println(EMPTY_LIST_AUTHORS);
+        } else {
+            authors.stream().forEach(a -> System.out.println(new AuthorDTO(a)));
         }
     }
 }

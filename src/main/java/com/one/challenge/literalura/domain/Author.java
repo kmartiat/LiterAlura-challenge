@@ -20,7 +20,7 @@ public class Author {
     @Column(name = "death_year")
     private Integer deathYear;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
     private List<Book> books;
 
     public Author() {
@@ -55,10 +55,10 @@ public class Author {
     @Override
     public String toString() {
         return "Author{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", birthYear=" + birthYear +
                 ", deathYear=" + deathYear +
+                ", books=" + books +
                 '}';
     }
 }
