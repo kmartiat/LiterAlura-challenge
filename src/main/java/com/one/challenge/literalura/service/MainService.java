@@ -104,5 +104,14 @@ public class MainService {
             books.stream().forEach(b -> System.out.println(new BookDTO(b)));
         }
     }
+
+    public void listTop10MostDownloadedbooks() {
+        List<Book> books = bookRepository.findTop10ByOrderByDownloadCountDesc();
+        if (books.isEmpty()) {
+            System.out.println(EMPTY_LIST_BOOKS);
+        } else {
+            books.stream().forEach(b -> System.out.println(new BookDTO(b)));
+        }
+    }
 }
 

@@ -44,6 +44,9 @@ public class MainController {
                 case 5:
                     mainService.listBooksByLanguage();
                     break;
+                case 6:
+                    mainService.listTop10MostDownloadedbooks();
+                    break;
                 case 0:
                     System.out.println(FINAL_MESSAGE);
                     break;

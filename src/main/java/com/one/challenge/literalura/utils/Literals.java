@@ -13,6 +13,7 @@ public class Literals {
             3 - List of registered authors
             4 - List Authors Alive In A Given Year
             5 - List of books by language
+            6 - The 10 most downloaded books
                                 
             0 - Exit
             """;
