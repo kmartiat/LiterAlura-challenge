@@ -86,5 +86,23 @@ public class MainService {
             authors.stream().forEach(a -> System.out.println(new AuthorDTO(a)));
         }
     }
+
+    public void listBooksByLanguage() {
+        System.out.println("""
+                Enter the language you want to search by:
+                en - inglés
+                es - español
+                fr - francés
+                pr - portugués
+                """);
+        String language = scanner.nextLine();
+
+        List<Book> books = bookRepository.findByLanguage(language);
+        if (books.isEmpty()) {
+            System.out.println(EMPTY_LIST_BOOKS);
+        } else {
+            books.stream().forEach(b -> System.out.println(new BookDTO(b)));
+        }
+    }
 }
 

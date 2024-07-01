@@ -41,6 +41,9 @@ public class MainController {
                 case 4:
                     mainService.listAuthorsAliveInAGivenYear();
                     break;
+                case 5:
+                    mainService.listBooksByLanguage();
+                    break;
                 case 0:
                     System.out.println(FINAL_MESSAGE);
                     break;
