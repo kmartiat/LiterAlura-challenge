@@ -42,9 +42,12 @@ public class MainController {
                     mainService.listAuthorsAliveInAGivenYear();
                     break;
                 case 5:
-                    mainService.listBooksByLanguage();
+                    mainService.searchAuthorByName();
                     break;
                 case 6:
+                    mainService.listBooksByLanguage();
+                    break;
+                case 7:
                     mainService.listTop10MostDownloadedbooks();
                     break;
                 case 0:

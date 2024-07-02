@@ -87,6 +87,18 @@ public class MainService {
         }
     }
 
+    public void searchAuthorByName() {
+        System.out.println("Enter the name of the author you want to search for: ");
+        String nameAuthor = scanner.nextLine();
+
+        Optional<Author> authorOptional = authorRepository.findByNameContainingIgnoreCase(nameAuthor);
+        if (authorOptional.isEmpty()) {
+            System.out.printf((EMPTY_AUTHOR) + "%n", nameAuthor);
+        } else {
+            System.out.println(new AuthorDTO(authorOptional.get()));
+        }
+    }
+
     public void listBooksByLanguage() {
         System.out.println("""
                 Enter the language you want to search by:
