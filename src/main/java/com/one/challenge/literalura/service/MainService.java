@@ -34,8 +34,13 @@ public class MainService {
         } else {
             ApiConnector connector = new ApiConnector();
             String jsonSource = connector.connector(BASE_URL + nameBook.replace(' ', '+'));
-
             ResultData resultData = convertService.convert(jsonSource, ResultData.class);
+
+            if (resultData.results().isEmpty()) {
+                System.out.printf((EMPTY_BOOK) + "%n", nameBook);
+                return;
+            }
+
             BookData data = resultData.results().get(0);
             AuthorData authorData = resultData.results().get(0).authors().get(0);
             Author author;

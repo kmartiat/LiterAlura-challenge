@@ -29,6 +29,8 @@ public class Literals {
 
     public static final String BASE_URL = "https://gutendex.com/books/?search=";
 
+    public static final String EMPTY_BOOK = "There is no book with the title '%s'.";
+
     public static final String EMPTY_LIST_BOOKS = "There are no books registered in the database.";
 
     public static final String EMPTY_LIST_AUTHORS = "There are no authors registered in the database.";
